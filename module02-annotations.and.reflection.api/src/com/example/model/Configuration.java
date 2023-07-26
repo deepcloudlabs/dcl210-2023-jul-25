@@ -15,7 +15,7 @@ public @interface Configuration {
 
 	String file();
 
-	char seperator() default ',';
+	String seperator() default ",";
 
 	String path();
 
