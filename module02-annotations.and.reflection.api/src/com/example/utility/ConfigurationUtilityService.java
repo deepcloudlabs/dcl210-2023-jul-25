@@ -31,9 +31,11 @@ public class ConfigurationUtilityService {
 		var file = configuration.file();
 		var seperator = configuration.seperator();
 		return Files.readAllLines(Path.of(path, file))
-				    .stream()
-				    .map(line -> Arrays.stream(line.split(seperator)).map(Integer::parseInt).toList())
-				    .flatMap(List::stream)
-				    .toList();
+				    .stream()   // List<String>
+				    .map( (String line) -> Arrays.stream(line.split(seperator)) // List<String>
+				    		           .map(Integer::parseInt) // Integer
+				    		           .toList()) // Stream<List<Integer>>
+				    .flatMap(List::stream) // Stream<Integer>
+				    .toList(); // List<Integer>, Terminal Method
 	}
 }
