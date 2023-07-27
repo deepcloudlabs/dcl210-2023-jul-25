@@ -37,7 +37,7 @@ implements LotteryService, WebServiceQualitySamplerMXBean{
 		totalResponseTime += (stop-start);
 		counter++;
 		double averageResponseTime = (double)totalResponseTime / counter;
-		if (averageResponseTime > 100_000.) {
+		if (averageResponseTime > 1_000.) {
 			setChanged();
 			notifyObservers(getQualityMetric());
 		}
